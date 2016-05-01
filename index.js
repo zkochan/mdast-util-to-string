@@ -18,9 +18,7 @@
  * @return {string} - Textual representation.
  */
 function valueOf(node) {
-    return node &&
-        (node.value ? node.value :
-        (node.alt ? node.alt : node.title)) || '';
+    return node && node.value || '';
 }
 
 /**
@@ -32,9 +30,8 @@ function valueOf(node) {
  * @return {string} - Textual representation.
  */
 function toString(node) {
-    return valueOf(node) ||
-        (node.children && node.children.map(toString).join('')) ||
-        '';
+    return (valueOf(node) ||
+        (node.children && node.children.map(toString).join('')) || '').trim();
 }
 
 /*

@@ -54,27 +54,7 @@ test('mdast-util-to-string', function (t) {
         'title': 'baz'
     }), 'should prefer `value` over `alt` or `title`');
 
-    t.equal('bar', toString({
-        'alt': 'bar',
-        'title': 'baz'
-    }), 'should prefer `alt` over `title`');
-
-    t.equal('baz', toString({
-        'title': 'baz',
-        'children': [
-            {
-                'value': 'foo'
-            },
-            {
-                'alt': 'bar'
-            },
-            {
-                'title': 'baz'
-            }
-        ]
-    }), 'should use `title` over `children`');
-
-    t.equal('foobarbaz', toString({
+    t.equal('foo', toString({
         'children': [
             {
                 'value': 'foo'
